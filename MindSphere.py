@@ -25,6 +25,12 @@ class MindSphere():
         }
         return json.loads(requests.get(f"{self.gateway_URL}api/assetmanagement/v3/assets",headers=headers).text)['_embedded']['assets']
     def putTimeSeriesData(self,assetId:str,aspectName:str,payload:dict):
+        '''Create a dictionary and send the payload parameter, in the dictionary create a _time key and set its value to None
+        
+        Example:
+        
+            putTimeSeriesData(assetId,aspectName,{"_time":None,"Temperature":90.50})
+        '''
         headers = {
             "Authorization":'bearer '+self.getToken(),
             "Content-Type":"application/json",
