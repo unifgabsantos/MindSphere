@@ -1,3 +1,5 @@
+# santos.gabriel@siemens.com
+# https://www.linkedin.com/in/gabriellopes8/
 import json,base64,requests,datetime
 class MindSphere():
     def __init__(self,app_Name:str,app_Version:str,tenant:str,gateway_URL:str,client_ID:str,client_Secret:str) -> None:
