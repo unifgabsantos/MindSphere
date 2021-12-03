@@ -46,4 +46,4 @@ class MindSphere():
             "Content-Type":"application/json",
         }
         url = f'{self.gateway_URL}api/assetmanagement/v3/assets/{assetId}/aspects'
-        return requests.get(url,headers=headers).text
+        return json.loads(requests.get(url,headers=headers).text)['_embedded']['aspects'][0]['name']
