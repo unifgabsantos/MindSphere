@@ -1,12 +1,17 @@
 from MindSphere import MindSphere
 
-mindsphere = MindSphere(app_Name=None,
-                        app_Version=None,
-                        tenant=None,
-                        gateway_URL=None,
-                        client_ID=None,
-                        client_Secret=None
+mindsphere = MindSphere(app_Name="",
+                        app_Version="",
+                        tenant="",
+                        gateway_URL="",
+                        client_ID="",
+                        client_Secret=""
                         )
-assetId,aspectName = None,None
+assetId = None
+aspectName = None
+fromDateTime = "2023-10-04T00:00:00Z"
+toDateTime = "2023-10-04T10:00:00Z"
+print(mindsphere.getTimeSeries(assetId,aspectName,fromDateTime,toDateTime))
 
-mindsphere.putTimeSeriesData(assetId,aspectName,{"_time":None,"Temperature":90.50})
+
+#mindsphere.putTimeSeriesData(assetId,aspectName,{"_time":None,"Temperature":90.50})
