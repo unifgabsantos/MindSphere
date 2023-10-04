@@ -47,3 +47,13 @@ class MindSphere():
         }
         url = f'{self.gateway_URL}api/assetmanagement/v3/assets/{assetId}/aspects'
         return json.loads(requests.get(url,headers=headers).text)['_embedded']['aspects'][0]['name']
+    def getTimeSeries(self,assetID,aspectName,fromDateTime,toDateTime):
+        headers = {
+            "Authorization":'bearer '+self.getToken(),
+            "Content-Type":"application/json",
+        }
+        if(fromDateTime=="" or toDateTime==""):
+            url = f"{self.gateway_URL}api/iottimeseries/v3/timeseries/{assetID}/{aspectName}"
+            return json.loads(requests.get(url,headers=headers).text)
+        url = f"{self.gateway_URL}api/iottimeseries/v3/timeseries/{assetID}/{aspectName}?from={fromDateTime}&to={toDateTime}"
+        return json.loads(requests.get(url,headers=headers).text)
